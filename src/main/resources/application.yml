@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: logback-to-kafka
+log:
+  config:
+    kafka:
+      # 是否将日志发送至kafka,true或false,使用时必须配置
+      isSend: true
+      # kafka的地址,使用时必须配置
+      bootstrapServers: 192.168.194.134:9092
+      # 日志发往的topic,使用时必须配置
+      topic: logbackToKafka2
+      #      # 批量上传数目,达到该数目后发送
+      batchSize: 5
+      #      # 间隔时间后发送,即使未达到批量上传最大数,间隔时间到了也会发送,单位为毫秒
+      lingerMs: 1000
+      # 数据压缩类型
+      compressionType: gzip
+      # 重试次数
+      retries: 3
+      # 最大消息大小,此处设为5M
+      maxRequestSize: 5242880
